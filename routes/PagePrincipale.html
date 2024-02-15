@@ -14,7 +14,30 @@
 
   <p>Votre Trajet en voiture électrique</p>
 
-  <script type="module" src="ClientSOAP.js"></script>
+  
+
+  <button id="calcul">Lance le calcul</button>
+
+
+  <script>
+    document.getElementById("calcul").addEventListener('click', function() {
+      var xhr = new XMLHttpRequest();
+      xhr.open('GET', '/getCalcul', true);
+
+      xhr.onreadystatechange = function() {
+        if (xhr.readyState == 4 && xhr.status == 200) {
+          var res = xhr.responseText.split(":");
+          var res = res[1].split("}");
+        document.getElementById("resTmpTrj").textContent = res[0];
+      }
+    };
+
+    xhr.send();
+
+  });
+    
+</script>
+  <text id="resTmpTrj"></text>
 </body>
 
 </html>

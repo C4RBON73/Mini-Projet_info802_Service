@@ -13,8 +13,10 @@ class CalculTpsTrajetService(ServiceBase) :
     @rpc(Float, Float, Float,  _returns=Float)
     def Calcul_Temps(ctx, distance, autonomie, tpsRecharge):
         vitesse = 100.
-        return (distance / vitesse) + (floor(distance / autonomie) * tpsRecharge)
-            
+        res =(distance / vitesse) + (floor(distance / autonomie) * tpsRecharge)
+        print(res)
+        return res
+        
 application = Application([CalculTpsTrajetService], 'spyne.examples.hello.soap',
     in_protocol=Soap11(validator='lxml'),
     out_protocol=Soap11())
