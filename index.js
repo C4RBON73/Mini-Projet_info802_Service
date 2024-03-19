@@ -104,9 +104,9 @@ app.get('/coordinates/:address', function(req, res){
         });
 
         apiRes.on('end', () => {
-            console.log('Status:', res.statusCode);
-            console.log('Headers:', JSON.stringify(res.headers));
-            console.log('Response:', body);
+            // console.log('Status:', res.statusCode);
+            // console.log('Headers:', JSON.stringify(res.headers));
+            // console.log('Response:', body);
             res.status(200).send(body);
         });
 
@@ -146,9 +146,9 @@ app.get('/route/:startLat/:startLong/:endLat/:endLong', function(req, res){
         });
 
         apiRes.on('end', () => {
-            console.log('Status:', res.statusCode);
-            console.log('Headers:', JSON.stringify(res.headers));
-            console.log('Response:', body);
+            // console.log('Status:', res.statusCode);
+            // console.log('Headers:', JSON.stringify(res.headers));
+            // console.log('Response:', body);
             res.status(200).send(body);
         });
 
