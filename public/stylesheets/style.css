@@ -1,8 +1,105 @@
-body {
-  padding: 50px;
-  font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+#map { height: 600px; width : 600px;}
+
+body{
+    margin: 0;
+    padding: 0;
 }
 
-a {
-  color: #00B7FF;
+.vehicleCard{
+    border : 1px solid black;
+    border-radius: 10px;
+    margin: auto;
+    margin-bottom: 5px;
+    padding: 5px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    width: 75%;
+}
+
+.vehicleCard:hover{
+    background-color: #dadada;
+    transform: scale(1.02);
+}
+
+.vehicleCard img {
+    width: 350px;
+    height:200px;
+    margin-right:10px;
+}
+
+.vehicleCard h2, .vehicleCard p {
+    margin: 0;
+}
+
+#vehiclesList {
+    height: 450px;
+    overflow-y: scroll;
+}
+
+.head{
+    text-align: center;
+    background-color: blue;
+    color: white;
+}
+
+.center {
+    display: flex;
+    flex-direction: row;
+    padding: 30px;
+    justify-content: space-evenly;
+    border: 1px solid black;
+    border-radius: 10px;
+}
+
+#infoForm{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.input label, input {
+    display: block;
+}
+
+.input label{
+    margin-bottom: 10px;
+}
+
+.buttons{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    width: 100%;
+    margin-bottom: 5px;
+    padding: 10px;
+}
+
+.summary {
+    border: 1px solid black;
+    border-radius: 5px;
+    padding: 20px;
+    background-color: #f9f9f9;
+    margin-bottom: 20px;
+    margin-top : 5px;
+}
+
+.summary h1 {
+    font-size: 1.5em;
+    margin-bottom: 10px;
+    text-align: center;
+}
+
+.summary p {
+    font-size: 1em;
+    margin: 5px 0;
+    text-align:center;
+}
+
+#distance, #vitesse {
+    font-style: italic;
+}
+
+#trip{
+    font-weight: bold;
 }

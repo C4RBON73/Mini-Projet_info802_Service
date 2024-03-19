@@ -11,11 +11,10 @@ from wsgiref.simple_server import make_server
 
 class CalculTpsTrajetService(ServiceBase) :
     @rpc(Float, Float, Float,  _returns=Float)
-    def Calcul_Temps(ctx, distance, autonomie, tpsRecharge):
-        vitesse = 100.
-        res =(distance / vitesse) + (floor(distance / autonomie) * tpsRecharge)
-        print(res)
-        return res
+    def Calcul_Temps(ctx, distance,vitesse,points):
+        temps = distance/vitesse * 60
+        return temps + (points * 30)
+
         
 application = Application([CalculTpsTrajetService], 'spyne.examples.hello.soap',
     in_protocol=Soap11(validator='lxml'),
