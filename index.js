@@ -58,9 +58,7 @@ app.get('/tripTime/:distance/:vitesse/:points', function(req, res){
                     console.error(err);
                     res.status(500).send(err);
                 }else{
-                    tripTime = result.tripTimeResult;
-                    console.log(tripTime);
-                    res.status(200).send(tripTime.toString());
+                    res.status(200).send(result.Calcul_TempsResult.toString());
                 }
             });
         }
@@ -88,11 +86,11 @@ app.get('/bornesData', async(req,res) => {
 //use GeocodeAutocompleteService for coordinates
 app.get('/coordinates/:address', function(req, res){
     const address = req.params.address;
-    
+    const apiKey = process.env.OPENSTREETMAP;
     const options = {
         method: "GET",
         hostname: "api.openrouteservice.org",
-        path: "/geocode/autocomplete?api_key=5b3ce3597851110001cf6248d3e9578fa3f8437bb98495a777283f1d&text="+address,
+        path: "/geocode/autocomplete?api_key="+apiKey+"&text="+address,
         headers: {
             "Accept": "application/json, application/geo+json, application/gpx+xml, img/png; charset=utf-8"
         }
@@ -126,6 +124,7 @@ app.get('/route/:startLat/:startLong/:endLat/:endLong', function(req, res){
     const startLong = req.params.startLong;
     const endLat = req.params.endLat;
     const endLong = req.params.endLong;
+    const apiKey = process.env.OPENSTREETMAP;
 
     const start = startLong+","+startLat;
     const end = endLong+","+endLat;
@@ -133,7 +132,7 @@ app.get('/route/:startLat/:startLong/:endLat/:endLong', function(req, res){
     const options = {
         method: "GET",
         hostname: "api.openrouteservice.org",
-        path: "/v2/directions/driving-car?api_key=5b3ce3597851110001cf6248d3e9578fa3f8437bb98495a777283f1d&start="+start+"&end="+end,
+        path: "/v2/directions/driving-car?api_key="+ apiKey+"&start="+start+"&end="+end,
         headers: {
             "Accept": "application/json, application/geo+json, application/gpx+xml, img/png; charset=utf-8"
         }
@@ -206,9 +205,13 @@ app.get('/vehicles', async (req, res) => {
     }
     `;
 
+    const key_client = process.env.charCli;
+    const key_app = process.env.charApp;
+
+
     const headers = {
-        'x-client-id' : '65f84a06f8b5c3070f031324',
-        'x-app-id' : '65f84a06f8b5c3070f031326'
+        'x-client-id' : "65f84a06f8b5c3070f031324",
+        'x-app-id' : "65f84a06f8b5c3070f031326"
     };
 
     try {
