@@ -21,7 +21,7 @@ http.listen(3000, function(){
 
 var tripTime = 0;
 
-const url = 'http://127.0.0.1:8000/.wsdl';
+const url = 'http://127.0.0.1:8000/?wsdl';
 
 function readJSONFromFile(filePath){
     try {
@@ -86,7 +86,7 @@ app.get('/bornesData', async(req,res) => {
 })
 
 //use GeocodeAutocompleteService for coordinates
-app.get('/coordinates/:address', function(req, res){ify
+app.get('/coordinates/:address', function(req, res){
     const address = req.params.address;
     
     const options = {
