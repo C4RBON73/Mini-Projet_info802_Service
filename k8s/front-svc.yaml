@@ -1,0 +1,15 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: front
+  labels:
+    app: front
+    tiers: backend
+spec:
+  type: LoadBalancer
+  selector:
+    app: front
+    lang: js
+  ports:
+  - port: 80
+    targetPort: 80
