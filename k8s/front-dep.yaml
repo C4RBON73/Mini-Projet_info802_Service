@@ -18,7 +18,7 @@ spec:
         lang: js
     spec:
       containers:
-      - image: https://github.com/C4RBON73/Mini-Projet_info802_Service.git
+      - image: ghcr.io/c4rbon73/mini-projet_info802_service/info910-js
         name: front
         ports:
           - containerPort: 80
