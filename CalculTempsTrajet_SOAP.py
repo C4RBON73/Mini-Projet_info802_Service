@@ -8,7 +8,6 @@ from spyne.protocol.soap import Soap11
 
 from wsgiref.simple_server import make_server
 
-
 class CalculTpsTrajetService(ServiceBase) :
     @rpc(Float, Float, Float,  _returns=Float)
     def Calcul_Temps(ctx, distance,vitesse,points):
