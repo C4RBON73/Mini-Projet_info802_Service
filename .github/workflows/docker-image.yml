@@ -17,7 +17,7 @@ jobs:
         id: build_image
         run: |
           TIMESTAMP=$(date +%s)
-          IMAGE_TAG="info910:${TIMESTAMP}"
+          IMAGE_TAG="info910-python:${TIMESTAMP}"
           REPO_NAME="${{ github.repository }}"
           REPO_NAME_LOWER=$(echo "$REPO_NAME" | tr '[:upper:]' '[:lower:]')
           docker build . --file Dockerfile --tag ghcr.io/${REPO_NAME_LOWER}/$IMAGE_TAG
