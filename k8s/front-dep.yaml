@@ -18,8 +18,9 @@ spec:
         lang: js
     spec:
       containers:
-      - image: https://github.com/C4RBON73/Mini-Projet_info802_Service.git
+      - image: ghcr.io/c4rbon73/mini-projet_info802_service/info910-js:1729094074
         name: front
+        imagePullPolicy: Always
         ports:
           - containerPort: 80
             name: http
@@ -34,3 +35,5 @@ spec:
           httpGet:
             path: "/"
             port: 80
+      imagePullSecrets:
+      - name: dockerconfigjson-github-com
