@@ -1,0 +1,39 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  labels:
+    app: python
+    tiers: backend
+  name: python
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: python
+      
+  template:
+    metadata:
+      labels:
+        app: python
+        
+    spec:
+      containers:
+      - image: ghcr.io/c4rbon73/mini-projet_info802_service/info910-python:1729087101
+        name: python
+        imagePullPolicy: Always
+        ports:
+          - containerPort: 8000
+            name: http
+        resources:
+          requests:
+            cpu: "200m"
+            memory: "200Mi"
+          limits:
+            cpu: "350m"
+            memory: "500Mi"
+        livenessProbe:
+          httpGet:
+            path: "/"
+            port: 8000
+      imagePullSecrets:
+      - name: dockerconfigjson-github-com
